@@ -1,1 +1,9 @@
-Under construction
+---
+lang: 'fa'
+dir: 'rtl'
+title: 'خانه'
+...
+
+## نوشته‌ها
+
+* [برداشت ۷ - اخطاری برای اشتراک کد](/blog/2018/03/97-things-07.html)
