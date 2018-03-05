@@ -30,16 +30,18 @@ function build {
 function build_html {
    _source="$1"
    _dest="$2"
-   echo "Rendering to HTML $1 --> $2 (PWD: $(pwd))"
+   _dir="$3"
+   echo "Rendering to HTML $1 --> $2 (PWD: ${_dir})"
    pandoc \
-      --template ../../../static/_template.html \
+      --template ./static/_template.html \
       -f markdown+smart -t html5 \
-      -o ${_dest} ${_source}
+      -o ${_dir}/${_dest} ${_dir}/${_source}
 }
 
 # Main
-input_file=$(basename "$1")
+input_file="$(basename "$(realpath "$1")")"
+input_dir="$(dirname "$(realpath "$1")")"
 file_ext="${input_file##*.}"
 file_name="${input_file%.*}"
 
-build_html $1 ${file_name}.html
+build_html ${file_name}.md ${file_name}.html ${input_dir}
