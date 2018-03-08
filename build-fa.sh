@@ -34,6 +34,7 @@ function build_html {
    echo "Rendering to HTML $1 --> $2 (PWD: ${_dir})"
    pandoc \
       --template ./static/_template.html \
+      --highlight-style tango \
       -f markdown+smart -t html5 \
       -o ${_dir}/${_dest} ${_dir}/${_source}
 }
