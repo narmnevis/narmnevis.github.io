@@ -92,5 +92,11 @@ System.out.println(student.name);
 
 درباره این ویژگی می‌توانید [در اینجا][jep-286] بیشتر مطالعه کنید.
 
+به نظر شما نوع متغیر `list` در کد زیر چیست؟
+
+```java
+var list = List.of("a", 1);
+```
+
 [jep-286]: http://openjdk.java.net/jeps/286
 
