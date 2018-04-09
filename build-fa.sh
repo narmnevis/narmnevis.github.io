@@ -35,6 +35,7 @@ function build_html {
    pandoc \
       --template ./static/_template.html \
       --highlight-style tango \
+      --include-after-body=./static/disqus.html \
       -f markdown+smart -t html5 \
       -o ${_dir}/${_dest} ${_dir}/${_source}
 }
