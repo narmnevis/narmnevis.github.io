@@ -40,6 +40,7 @@ function build_html {
       --template ./static/_template.html \
       --highlight-style tango \
       -f markdown+smart -t html5 \
+      --metadata date-meta="$(date +%Y-%m-%d)" \
       $PANDOC_OPTS -o ${_dir}/${_dest} ${_dir}/${_source}
 }
 

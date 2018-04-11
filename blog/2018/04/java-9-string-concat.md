@@ -45,7 +45,9 @@ System.out.println("Which version?");
 System.out.println(cs + " or " + cs + " or " + cs);
 ```
 
-تکه کد بالا در جاوا ۸ و جاوا ۹ *ترتیب متفاوتی* از اجرای `toString` ایجاد می‌کند. در جاوا ۸:
+تکه کد بالا در جاوا ۸ و جاوا ۹ *ترتیب متفاوتی* از اجرای `toString` ایجاد می‌کند. 
+
+در جاوا ۸:
 
 ```bash
 Which Java version do you like more?
