@@ -32,12 +32,15 @@ function build_html {
    _dest="$2"
    _dir="$3"
    echo "Rendering to HTML $1 --> $2 (PWD: ${_dir})"
+   PANDOC_OPTS=""
+   if [ "$_source" != "README.md" ]; then
+      PANDOC_OPTS="$PANDOC_OPTS --include-after-body=./static/disqus.html"
+   fi
    pandoc \
       --template ./static/_template.html \
       --highlight-style tango \
-      --include-after-body=./static/disqus.html \
       -f markdown+smart -t html5 \
-      -o ${_dir}/${_dest} ${_dir}/${_source}
+      $PANDOC_OPTS -o ${_dir}/${_dest} ${_dir}/${_source}
 }
 
 # Main
