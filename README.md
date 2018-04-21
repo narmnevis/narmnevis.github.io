@@ -6,6 +6,7 @@ title: 'خانه'
 
 ## نوشته‌ها
 
+* [قانون صفر، یک، بینهایت](/blog/2018/04/zero-one-inf-rule.html)
 * [جاوا ۹ -- ترتیب در الحاق رشته‌ها](/blog/2018/04/java-9-string-concat.html)
 * [برداشت ۱۱ -- به زبان دامنه](/blog/2018/04/97-things-11-domain-lang.html)
 * [برداشت ۸ — قانون پیش‌آهنگی](/blog/2018/03/97-things-08-boy-scouts.html)
