@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2018-08-22" />
+  <meta name="keywords" content="جاوا, java, jvm, scala, اسکالا" />
+  <title>نگاهی دوباره به آینده جاوا و اسکالا</title>
+  <link href="https://cdn.rawgit.com/rastikerdar/vazir-font/v18.0.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="/static/default.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<header>
+<h1 class="title">نگاهی دوباره به آینده جاوا و اسکالا</h1>
+</header>
+<!--
+نگاهی دوباره به آینده جاوا و اسکالا
+-->
+<p>از انتشار جاوا ۹ به بعد، زبان جاوا بر اساس <a href="http://mail.openjdk.java.net/pipermail/discuss/2017-September/004281.html">زمان‌بندی جدید</a> <a href="http://openjdk.java.net/jeps/322">منتشر</a> می‌شود. به طور خلاصه، تقریبا هر شش ماه یک بار می‌توان انتظار نسخه‌ی جدیدی از جاوا داشت. با این سرعت، ویژگی‌هایی که در زبان تغییر می‌کنند یا به آن اضافه می‌شوند، مورد توجه بیشتری قرار می‌گیرند. یکی از مهم‌ترین سؤال‌هایی که در مقابل زبان جاوا در مقایسه با زبان‌های مدرن‌تر مانند اسکالا مطرح بوده، توانایی در برابری و معادل‌سازی ویژگی‌های زبانی بوده‌ است. برخی از این ویژگی‌ها از ابتدا با اسکالا بوده‌اند که محوری برای استدلال برای ترک یا قدیمی‌شدن زبانی مثل جاوا بوده‌اند. در جدول زیر خلاصه‌ای از ویژگی‌های مدرن و کلیدی زبان جاوا و <a href="https://www.scala-lang.org/download/changelog.html">اسکالا</a> در نسخه‌های مختلف کنار هم قرار گرفته‌اند:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 20%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Java</th>
+<th>Scala</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Case Classes</td>
+<td><a href="http://openjdk.java.net/jeps/305">JEP-305</a></td>
+<td>2.0 — Mar 2006</td>
+</tr>
+<tr class="even">
+<td>Pattern Matching</td>
+<td><a href="http://openjdk.java.net/jeps/325">12</a></td>
+<td>2.0 — Mar 2006</td>
+</tr>
+<tr class="odd">
+<td>Multi-line Strings</td>
+<td><a href="http://openjdk.java.net/jeps/326">JEP-326</a></td>
+<td>2.1.7 — Jul 2006</td>
+</tr>
+<tr class="even">
+<td>Pattern Matching - Deconstructors / Extractors</td>
+<td><a href="http://openjdk.java.net/jeps/305">JEP-305</a></td>
+<td>2.3.2 — Jan 2007</td>
+</tr>
+<tr class="odd">
+<td>Tuples</td>
+<td><a href="http://openjdk.java.net/jeps/169">JPE-169</a></td>
+<td>2.3.2 — Jan 2007</td>
+</tr>
+<tr class="even">
+<td>For Comprehensions</td>
+<td>?</td>
+<td>2.5 — May 2007</td>
+</tr>
+<tr class="odd">
+<td>Continuations</td>
+<td><a href="http://openjdk.java.net/projects/loom/">Loom</a></td>
+<td>2.8 — Jul 2010</td>
+</tr>
+<tr class="even">
+<td>Concurrent Collections</td>
+<td><a href="https://en.wikipedia.org/wiki/Java_version_history#J2SE_5.0">1.5</a></td>
+<td>2.9 — May 2011</td>
+</tr>
+<tr class="odd">
+<td>Pattern Matching Rewrite</td>
+<td>n.a.</td>
+<td>2.10 — ?</td>
+</tr>
+</tbody>
+</table>
+<p>با توجه به این <a href="https://www.scala-lang.org/blog/2018/04/19/scala-3.html">اسکالا ۳</a> حدود سال ۲۰۲۰ قرار است منتشر شود و با سرعتی که جاوا در پیش گرفته‌است به نظر شما کدام زبان در آینده موفقیت بیشتری در ارائه ویژگی‌های مدرن زبان‌های برنامه‌نویسی خواهد داشت؟</p>
+<div id="disqus_thread"></div><script>var disqus_config=function(){this.page.url=window.location.href;this.page.identifier=window.location.pathname.replace(/\//g, '_');};(function(){var d=document, s=d.createElement('script');s.src = 'https://narmnevis.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article>
+</body>
+</html>

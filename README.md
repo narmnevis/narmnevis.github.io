@@ -6,6 +6,7 @@ title: 'خانه'
 
 ## نوشته‌ها
 
+* [نگاهی دوباره به آینده جاوا و اسکالا](/blog/2018/08/java-scala-language-future.html)
 * [فهرست تمام پرچم‌های جاوا از نسخه ۶ تا آینده](/blog/2018/06/java-jvm-flags-all.html)
 * [قانون صفر، یک، بینهایت](/blog/2018/04/zero-one-inf-rule.html)
 * [جاوا ۹ -- ترتیب در الحاق رشته‌ها](/blog/2018/04/java-9-string-concat.html)
