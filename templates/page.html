@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — {{ config.title }}{% endblock title %}
+
+{% block content %}
+<article>
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      {% if page.date %}
+      <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+      {% endif %}
+      {% if page.extra.keywords %}
+      <span class="post-keywords">
+        {% for kw in page.extra.keywords %}
+        <span class="keyword">{{ kw }}</span>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="post-content">
+    {{ page.content | safe }}
+  </div>
+</article>
+
+{{ load_data(path="static/disqus.html") | safe }}
+{% endblock content %}

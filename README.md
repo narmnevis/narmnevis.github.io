@@ -1,58 +1,96 @@
 # narmnevis.github.io
 
-A bilingual (Persian/English) technical blog, built with [pandoc](https://pandoc.org) and [just](https://just.systems).
+A bilingual (Persian/English) technical blog, built with [Zola](https://www.getzola.org) and [just](https://just.systems).
 
 ## Structure
 
 ```
-index.md          # bilingual landing page → index.html
-index-fa.md       # Persian posts index   → index-fa.html
-index-en.md       # English posts index   → index-en.html
-blog/YYYY/MM/     # post source (.md) and output (.html) live together
+config.toml           # Zola site config (bilingual FA+EN, feeds, sass)
+content/
+  _index.md           # EN landing page
+  _index.fa.md        # FA landing page
+  blog/
+    _index.md         # EN posts section
+    _index.fa.md      # FA posts section
+    YYYY/MM/
+      post.fa.md      # Persian post  (lang = "fa", dir = "rtl" in [extra])
+      post.md         # English post  (lang = "en", dir = "ltr" in [extra])
+templates/
+  base.html           # Tera base template (lang/dir from page.extra)
+  index.html          # Landing page
+  page.html           # Blog post
+  section.html        # Post listing
+sass/
+  main.scss           # Stylesheet (RTL-aware, GitHub markdown style)
 static/
-  _template.html  # pandoc HTML template (supports lang + dir from front matter)
-  default.css     # stylesheet (RTL-aware)
-  disqus.html     # Disqus comments snippet
-Justfile          # build recipes
+  _template.html      # pandoc template (compat, for build-post/build-pdf)
+  default.css         # pandoc stylesheet (compat)
+  disqus.html         # Disqus snippet (used by page.html template)
+Justfile              # Build recipes
+mise.toml             # Tool versions (zola 0.19.2)
+```
+
+## Getting started
+
+```bash
+just install   # install zola via mise (first time only)
+just serve     # local dev server at http://localhost:1111 with live reload
+just build     # production build → public/
+just check     # validate internal links
 ```
 
 ## Writing a post
 
-1. Create `blog/YYYY/MM/my-post.md` with front matter:
+### Persian post
 
-   ```yaml
-   ---
-   lang: 'en'        # or 'fa'
-   dir: 'ltr'        # or 'rtl'
-   title: 'My Post Title'
-   keywords: [foo, bar]
-   ---
-   ```
+Create `content/blog/YYYY/MM/my-post.fa.md`:
 
-2. Write content in Markdown.
+```toml
++++
+title = "عنوان نوشته"
+date = YYYY-MM-DD
 
-3. Build:
+[extra]
+lang = "fa"
+dir = "rtl"
+keywords = ["کلیدواژه"]
++++
 
-   ```bash
-   just build blog/YYYY/MM/my-post.md
-   ```
+متن نوشته در اینجا...
+```
 
-4. Add a link to `index-en.md` (or `index-fa.md`) and rebuild the indexes:
+Then add a transparent `_index.fa.md` in each new year/month subdir if it doesn't exist:
 
-   ```bash
-   just build-all
-   ```
+```toml
++++
+transparent = true
+render = false
++++
+```
 
-## Recipes
+### English post
+
+Create `content/blog/YYYY/MM/my-post.md` (same structure, `lang = "en"`, `dir = "ltr"`).
+
+## Multilingual routing
+
+| File suffix | URL | Language |
+|---|---|---|
+| `post.fa.md` | `/fa/blog/YYYY/MM/post/` | Persian (RTL) |
+| `post.md` | `/blog/YYYY/MM/post/` | English (LTR) |
+
+## Pandoc compat
+
+The old pandoc setup is preserved for one-off use:
 
 ```bash
-just build FILE      # build a single .md → .html
-just build-all       # rebuild all three index pages
-just build-pdf FILE  # build a single .md → .pdf (requires XeLaTeX)
+just build-post content/blog/YYYY/MM/post.md   # → .html via pandoc
+just build-pdf  content/blog/YYYY/MM/post.md   # → .pdf via XeLaTeX
 ```
 
 ## Dependencies
 
-- [`pandoc`](https://pandoc.org) — document converter
+- [`zola`](https://www.getzola.org) — static site generator (managed via mise)
 - [`just`](https://just.systems) — command runner
-- XeLaTeX (optional, for PDF export)
+- [`mise`](https://mise.jdx.dev) — tool version manager
+- `pandoc` + XeLaTeX (optional, for `build-post` / `build-pdf`)

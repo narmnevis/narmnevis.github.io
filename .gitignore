@@ -1,2 +1,7 @@
 *.class
 
+# Zola build output
+public/
+
+# mise local overrides
+.mise.local.toml

@@ -1,0 +1,262 @@
+// ─── Variables ───────────────────────────────────────────────────────────────
+$font-sans: -apple-system, system-ui, 'Noto Sans Arabic UI', Vazir, sans-serif;
+$font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+$color-text: #24292e;
+$color-muted: #6a737d;
+$color-link: #0366d6;
+$color-border: #eaecef;
+$color-bg-code: #f6f8fa;
+$color-bg-body: #ffffff;
+$max-width: 720px;
+
+// ─── Reset & Base ────────────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: $color-bg-body;
+  color: $color-text;
+  font-family: $font-sans;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+// ─── Layout ──────────────────────────────────────────────────────────────────
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+// ─── Header / Nav ────────────────────────────────────────────────────────────
+.site-header {
+  padding: 20px 0;
+  border-bottom: 1px solid $color-border;
+  margin-bottom: 40px;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-title {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: $color-text;
+  &:hover { text-decoration: none; color: $color-link; }
+}
+
+.nav-links {
+  font-size: 0.9em;
+  color: $color-muted;
+  a { color: $color-muted; &:hover { color: $color-link; } }
+}
+
+.nav-sep { margin: 0 6px; color: $color-border; }
+
+// ─── Footer ──────────────────────────────────────────────────────────────────
+.site-footer {
+  margin-top: auto;
+  padding: 32px 0 24px;
+  border-top: 1px solid $color-border;
+  font-size: 0.85em;
+  color: $color-muted;
+  text-align: center;
+  p { margin: 0; }
+  a { color: $color-muted; &:hover { color: $color-link; } }
+}
+
+// ─── Home page ───────────────────────────────────────────────────────────────
+.home {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.home-title {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.home-subtitle {
+  color: $color-muted;
+  margin: 0 0 40px;
+}
+
+.home-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  font-size: 1.1em;
+}
+
+// ─── Section / Post list ─────────────────────────────────────────────────────
+.section-header h1 {
+  font-size: 1.6em;
+  font-weight: 700;
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid $color-border;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list-item {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid $color-border;
+  &:last-child { border-bottom: none; }
+}
+
+[dir="rtl"] .post-list-item {
+  flex-direction: row-reverse;
+}
+
+.post-date {
+  font-size: 0.85em;
+  color: $color-muted;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.empty { color: $color-muted; font-style: italic; }
+
+// ─── Post page ───────────────────────────────────────────────────────────────
+.post-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $color-border;
+}
+
+.post-title {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85em;
+  color: $color-muted;
+  flex-wrap: wrap;
+}
+
+.post-keywords {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.keyword {
+  background: $color-bg-code;
+  border: 1px solid $color-border;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 0.9em;
+}
+
+// ─── Markdown body ───────────────────────────────────────────────────────────
+.markdown-body {
+  flex: 1;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  h2 { padding-bottom: .3em; border-bottom: 1px solid $color-border; font-size: 1.4em; }
+  h3 { font-size: 1.2em; }
+
+  p { margin: 0 0 16px; }
+
+  ol, ul { padding-left: 2em; padding-right: 0; margin: 0 0 16px; }
+  [dir="rtl"] & { 
+    ol, ul { padding-right: 2em; padding-left: 0; }
+  }
+
+  blockquote {
+    margin: 0 0 16px;
+    padding: 0 1em;
+    color: $color-muted;
+    border-left: .25em solid $color-border;
+  }
+
+  [dir="rtl"] & blockquote {
+    border-left: none;
+    border-right: .25em solid $color-border;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 0 0 16px;
+    th { font-weight: 600; }
+    td, th { padding: 6px 13px; border: 1px solid $color-border; }
+    tr { background: #fff; border-top: 1px solid #c6cbd1; }
+    tr:nth-child(2n) { background: $color-bg-code; }
+  }
+
+  img { max-width: 100%; }
+
+  code {
+    font-family: $font-mono;
+    font-size: 85%;
+    background: $color-bg-code;
+    border-radius: 3px;
+    padding: .2em .4em;
+  }
+
+  pre {
+    background: $color-bg-code;
+    border-radius: 6px;
+    padding: 16px;
+    overflow: auto;
+    margin: 0 0 16px;
+    // Always LTR for code blocks
+    direction: ltr;
+    unicode-bidi: isolate;
+    code {
+      background: none;
+      padding: 0;
+      font-size: 85%;
+      line-height: 1.45;
+    }
+  }
+
+  hr {
+    height: .25em;
+    margin: 24px 0;
+    background: $color-border;
+    border: 0;
+  }
+
+  > :first-child { margin-top: 0 !important; }
+  > :last-child  { margin-bottom: 0 !important; }
+}

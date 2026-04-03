@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html
+  lang="{{ page.extra.lang | default(value=lang) }}"
+  {% if page.extra.dir %}dir="{{ page.extra.dir }}"{% elif section.extra.dir %}dir="{{ section.extra.dir }}"{% endif %}
+>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+  {% if page.description %}<meta name="description" content="{{ page.description }}" />{% endif %}
+  {% if page.extra.keywords %}<meta name="keywords" content="{{ page.extra.keywords | join(sep=', ') }}" />{% endif %}
+  <link href="https://cdn.rawgit.com/rastikerdar/vazir-font/v18.0.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="{{ get_url(path='main.css') }}" />
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="site-header">
+      <nav class="site-nav">
+        <a class="site-title" href="{{ get_url(path='/') }}">{{ config.title }}</a>
+        <div class="nav-links">
+          <a href="{{ get_url(path='@/blog/_index.md') }}">EN</a>
+          <span class="nav-sep">·</span>
+          <a href="{{ get_url(path='@/blog/_index.fa.md') }}">فارسی</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="markdown-body">
+      {% block content %}{% endblock content %}
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <a href="{{ get_url(path='/') }}">{{ config.title }}</a>
+        <span class="nav-sep">·</span>
+        <a href="{{ get_url(path='@/blog/_index.md') }}">EN</a>
+        <span class="nav-sep">·</span>
+        <a href="{{ get_url(path='@/blog/_index.fa.md') }}">فارسی</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

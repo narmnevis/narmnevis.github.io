@@ -1,0 +1,20 @@
+base_url = "https://narmnevis.github.io"
+default_language = "en"
+title = "narmnevis"
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+compile_sass = true
+
+[markdown]
+highlight_code = true
+highlight_theme = "gruvbox-light"
+
+[languages.fa]
+title = "نرم‌نویس"
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+[languages.fa.translations]
+home = "خانه"
+posts = "نوشته‌ها"
+read_more = "بیشتر بخوانید"
