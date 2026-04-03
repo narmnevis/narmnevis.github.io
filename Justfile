@@ -8,8 +8,12 @@
 install:
     mise install
 
-# Build the full site
-build:
+# Remove build output
+clean:
+    rm -rf public/
+
+# Build the full site (clean first to remove stale files)
+build: clean
     zola build
 
 # Local dev server with live reload

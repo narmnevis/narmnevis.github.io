@@ -23,4 +23,4 @@ $ java \
 در صفحه‌‌ی زیر می‌توانید فهرست تمام این پرچم‌ها از نسخه جاوا ۶ تا به حال رو در یک نگاه داشته باشید.
 خیلی مفیده:
 
-<https://chriswhocodes.com/hotspot_options_jdk11.html>
+<https://chriswhocodes.com/vm-options-explorer.html>

@@ -35,6 +35,6 @@ keywords = ["جاوا", "java", "jvm", "scala", "اسکالا"]
 [5]: http://openjdk.java.net/jeps/326
 [6]: http://openjdk.java.net/jeps/169
 [7]: http://openjdk.java.net/projects/loom/
-[8]: https://en.wikipedia.org/wiki/Java_version_history#J2SE_5.0
+[8]: https://en.wikipedia.org/wiki/Java_version_history
 [9]: http://openjdk.java.net/jeps/305
 [10]: https://www.scala-lang.org/blog/2018/04/19/scala-3.html

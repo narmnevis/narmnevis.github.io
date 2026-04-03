@@ -29,8 +29,9 @@
 }
 
 // ─── Variables (SCSS — build-time only) ───────────────────────────────────────
-$font-sans: -apple-system, system-ui, 'Noto Sans Arabic UI', Vazir, sans-serif;
-$font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+$font-sans: -apple-system, system-ui, 'Segoe UI', Roboto, sans-serif;
+$font-sans-fa: Vazir, -apple-system, system-ui, sans-serif;
+$font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 $max-width: 720px;
 
 // ─── Reset & Base ────────────────────────────────────────────────────────────
@@ -46,6 +47,13 @@ body {
   font-size: clamp(15px, 2.5vw, 17px);
   line-height: 1.7;
   transition: background 0.2s, color 0.2s;
+}
+
+html:lang(fa),
+html[dir="rtl"] {
+  body, & {
+    font-family: $font-sans-fa;
+  }
 }
 
 a {
