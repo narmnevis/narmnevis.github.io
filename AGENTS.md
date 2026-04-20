@@ -40,13 +40,11 @@ just install    # install zola via mise (first time)
 just serve      # local dev server at http://localhost:1111
 just build      # clean build → public/
 just check      # validate all internal and external links
-just build-post FILE  # build a single .md → .html via pandoc (compat)
-just build-pdf FILE   # build a single .md → .pdf via XeLaTeX (compat)
 ```
 
 ## Notes
 
 - `public/` is gitignored — built by GitHub Actions on deploy
-- `static/` contains pandoc-compat assets (`_template.html`, `default.css`, `disqus.html`)
-- Disqus is included via `static/disqus.html` loaded directly in `templates/page.html`
+- `static/` contains only `disqus.html` (loaded directly in `templates/page.html`)
 - Transparent `_index.md` / `_index.fa.md` files in each year/month subdir are required for Zola's section routing
+- Pandoc-era artifacts (`filters/`, `static/_template.html`, `static/default.css`, `Justfile: build-post`/`build-pdf`, top-level `index.html` symlink) were removed in the 2026-04 cleanup; see `docs/authoring-tools-audit.md` §7

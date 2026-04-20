@@ -21,13 +21,12 @@ templates/
   page.html           # Blog post
   section.html        # Post listing
 sass/
-  main.scss           # Stylesheet (RTL-aware, GitHub markdown style)
+  main.scss           # Stylesheet (RTL-aware, dark-mode via prefers-color-scheme)
 static/
-  _template.html      # pandoc template (compat, for build-post/build-pdf)
-  default.css         # pandoc stylesheet (compat)
-  disqus.html         # Disqus snippet (used by page.html template)
+  disqus.html         # Disqus snippet (loaded by templates/page.html)
+docs/                 # Internal notes / audits (not published)
 Justfile              # Build recipes
-mise.toml             # Tool versions (zola 0.19.2)
+mise.toml             # Tool versions (zola 0.22.1)
 ```
 
 ## Getting started
@@ -74,23 +73,13 @@ Create `content/blog/YYYY/MM/my-post.md` (same structure, `lang = "en"`, `dir = 
 
 ## Multilingual routing
 
-| File suffix | URL | Language |
-|---|---|---|
-| `post.fa.md` | `/fa/blog/YYYY/MM/post/` | Persian (RTL) |
-| `post.md` | `/blog/YYYY/MM/post/` | English (LTR) |
-
-## Pandoc compat
-
-The old pandoc setup is preserved for one-off use:
-
-```bash
-just build-post content/blog/YYYY/MM/post.md   # → .html via pandoc
-just build-pdf  content/blog/YYYY/MM/post.md   # → .pdf via XeLaTeX
-```
+| File suffix  | URL                          | Language       |
+| ------------ | ---------------------------- | -------------- |
+| `post.fa.md` | `/fa/blog/YYYY/MM/post/`     | Persian (RTL)  |
+| `post.md`    | `/blog/YYYY/MM/post/`        | English (LTR)  |
 
 ## Dependencies
 
 - [`zola`](https://www.getzola.org) — static site generator (managed via mise)
 - [`just`](https://just.systems) — command runner
 - [`mise`](https://mise.jdx.dev) — tool version manager
-- `pandoc` + XeLaTeX (optional, for `build-post` / `build-pdf`)
